@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: STUDY
+server:
+  port: 8089
+  servlet:
+    context-path: /winter
+    session:
+      timeout: 60m
