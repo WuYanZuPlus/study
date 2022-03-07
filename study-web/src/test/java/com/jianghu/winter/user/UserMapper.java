@@ -17,6 +17,8 @@ interface UserMapper {
     @Select("select * from t_user")
     List<UserEntity> find();
 
+    List<UserEntity> findByCondition(UserEntity user);
+
     @Insert("INSERT INTO t_user (account, user_name, mobile, email, nick_name, password, user_level, valid, user_type) "
             + "values (#{account}, #{userName}, #{mobile}, #{email}, #{nickName}, #{password}, #{userLevel}, #{valid}, #{userType}) ")
     void insert(UserEntity user);

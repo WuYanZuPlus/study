@@ -34,6 +34,13 @@ public class UserService {
     }
 
     /**
+     * findByCondition
+     */
+    public List<UserEntity> findByCondition(UserEntity query){
+        return mapper.findByCondition(query);
+    }
+
+    /**
      * delete
      */
     public void delete(Long id) {

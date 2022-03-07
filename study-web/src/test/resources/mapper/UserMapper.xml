@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jianghu.winter.user.UserMapper">
+
+    <select id="findByCondition" resultType="com.jianghu.winter.user.UserEntity">
+        select * from t_user
+        <where>
+            <if test="account != null and account != ''">
+                and `account` = #{account}
+            </if>
+            <if test="userName != null and userName != ''">
+                and user_name = #{userName}
+            </if>
+            <if test="mobile != null and mobile != ''">
+                and mobile like CONCAT ('%',#{mobile},'%')
+            </if>
+        </where>
+    </select>
+</mapper>

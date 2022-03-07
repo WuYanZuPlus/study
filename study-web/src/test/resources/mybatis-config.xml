@@ -39,5 +39,6 @@
     <!-- 配置映射文件：用来配置sql语句和结果集类型等 -->
     <mappers>
         <mapper class="com.jianghu.winter.user.UserMapper"/>
+        <mapper resource="mapper/UserMapper.xml"/>
     </mappers>
 </configuration>

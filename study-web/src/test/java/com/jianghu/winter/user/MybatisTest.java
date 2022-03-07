@@ -24,8 +24,8 @@ import static org.junit.Assert.assertEquals;
 public class MybatisTest {
 
     private static SqlSessionFactory sqlSessionFactory;
-    private SqlSession sqlSession;
     private static Connection connection;
+    private SqlSession sqlSession;
     private UserService userService;
 
     @BeforeClass
@@ -108,6 +108,20 @@ public class MybatisTest {
         UserEntity afterUpdateEntity = userService.get(1L);
         assertEquals("娃哈哈", afterUpdateEntity.getUserName());
         System.out.println("【Update + Get】: " + JSON.toJSONString(afterUpdateEntity, true));
+    }
+
+    @Test
+    public void test_findByCondition() {
+        UserEntity userQuery = new UserEntity();
+        userQuery.setMobile("1234");
+        List<UserEntity> entities = userService.findByCondition(userQuery);
+        assertEquals(3, entities.size());
+        System.out.println("【FindByCondition】: " + JSON.toJSONString(entities, true));
+
+        List<UserEntity> entities0 = userService.findByCondition(userQuery);
+        assertEquals(3, entities0.size());
+        System.out.println("【FindByCondition2】: " + JSON.toJSONString(entities0, true));
+
     }
 
 }
