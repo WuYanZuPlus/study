@@ -33,6 +33,7 @@ public class JDKInvocationHandler implements InvocationHandler {
     }
 
     public static Object newProxyInstance(Object target) {
+        // 类加载器、接口类、InvocationHandler接口实现类
         return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), new JDKInvocationHandler(target));
     }
 }
