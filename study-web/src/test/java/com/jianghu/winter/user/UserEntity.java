@@ -6,6 +6,7 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * @author daniel.hu
@@ -15,7 +16,7 @@ import javax.persistence.Table;
 @Setter
 @Entity
 @Table(name = "t_user")
-public class UserEntity {
+public class UserEntity implements Serializable {
 
     private Long id;
     private String account;

@@ -118,9 +118,36 @@ public class MybatisTest {
         assertEquals(3, entities.size());
         System.out.println("【FindByCondition】: " + JSON.toJSONString(entities, true));
 
+    }
+
+    @Test
+    public void test_findByConditionWithCacheOne() {
+        UserEntity userQuery = new UserEntity();
+        userQuery.setMobile("1234");
+        List<UserEntity> entities = userService.findByCondition(userQuery);
+        assertEquals(3, entities.size());
+        System.out.println("【FindByCondition】: " + JSON.toJSONString(entities, true));
+
         List<UserEntity> entities0 = userService.findByCondition(userQuery);
         assertEquals(3, entities0.size());
-        System.out.println("【FindByCondition2】: " + JSON.toJSONString(entities0, true));
+        System.out.println("【FindByConditionWithCacheOne】: " + JSON.toJSONString(entities0, true));
+
+    }
+
+    @Test
+    public void test_findByConditionWithCacheTwo() {
+        // 开启二级缓存
+        UserEntity userQuery = new UserEntity();
+        userQuery.setMobile("1234");
+        List<UserEntity> entities = userService.findByCondition(userQuery);
+        assertEquals(3, entities.size());
+        System.out.println("【FindByCondition】: " + JSON.toJSONString(entities, true));
+        // 事务提交
+        sqlSession.commit();
+
+        List<UserEntity> entities0 = userService.findByCondition(userQuery);
+        assertEquals(3, entities0.size());
+        System.out.println("【FindByConditionWithCacheTwo】: " + JSON.toJSONString(entities0, true));
 
     }
 
