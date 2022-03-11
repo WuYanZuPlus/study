@@ -20,7 +20,7 @@
         办法修改缓存，他的默认值是false，不允许我们修改
     -->
 
-    <cache/>
+<!--    <cache/>-->
     <!--
         <select id="findByCondition" flushCache="true" resultType="com.jianghu.winter.user.UserEntity">
     -->

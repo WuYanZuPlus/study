@@ -3,9 +3,7 @@ package com.jianghu.winter.user;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -18,6 +16,8 @@ import java.io.Serializable;
 @Table(name = "t_user")
 public class UserEntity implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String account;
     @Column(name = "user_name")

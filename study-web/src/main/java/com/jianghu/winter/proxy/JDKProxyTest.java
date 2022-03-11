@@ -23,7 +23,7 @@ public class JDKProxyTest {
         Say say = new SayImpl();
         Say proxy = (Say) JDKInvocationHandler.newProxyInstance(say);
         proxy.sayHello();
-        generateProxyClass(say);
+        // generateProxyClass(say);
     }
 
     /**
